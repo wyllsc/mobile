@@ -7,52 +7,18 @@
  */
 
 //criação de uma instância do servidor
-$server = new SoapServer(null, array('uri' => "http://127.0.0.1/projects/webservice-php/"));
+$server = new SoapServer(null, array('uri' => "/webservice/"));
 
-function consultaBanco()
+function consultaBanco($id)
 {
-	$id = 3;
-	try {
-	    $conn = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u313607455_app', 'u313607455_app', 'sao2300801');
-	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);    
-	     
-	    $result = $conn->prepare('SELECT * FROM pessoa WHERE id = :id');
-	    $result->execute(array('id' => $id));
-	 
-
-
-
-
-
-
-
-	 	$jsonObj= array();
-	 	
-		if($result){
-			foreach($result as $linha){
-				$jsonObj[] = $result;
-				echo $linha['id'] . " - " . $linha['nome'] . "<br>\n";
-			}
-		}
-
-		return json_encode($jsonObj);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	} catch(PDOException $i) {
-		print "Erro: <code>" . $i->getMessage() . "</code>";
-	}
+	$conn = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u313607455_app', 'u313607455_app', 'sao2300801');
+     
+    $sql = $conn->prepare('SELECT * FROM pessoa WHERE id = :id');
+    $sql->execute(array('id' => $id));
+ 
+    $results=$sql->fetchAll(PDO::FETCH_ASSOC);
+ 	$json=json_encode($results);
+ 	return $json;
 
 }
 
