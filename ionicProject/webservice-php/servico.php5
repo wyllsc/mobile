@@ -1,17 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: SantClair
- * Date: 29/03/2015
- * Time: 12:22
- */
+header ("Access-Control-Allow-Origin: *");
 
-//criação de uma instância do servidor
-$server = new SoapServer(null, array('uri' => "/webservice/"));
+$server = new SoapServer(null, array('uri' => "http://127.0.0.1/projects/webservice-php/"));
 
-function consultaBanco($id)
-{
-	$conn = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u313607455_app', 'u313607455_app', 'sao2300801');
+function consultaBanco(){
+	$conn = new PDO('mysql:host=127.0.0.1;dbname=app', 'root', '');
+     
+    $sql = $conn->prepare('SELECT * FROM pessoa');
+    $sql->execute();
+ 
+    $results=$sql->fetchAll(PDO::FETCH_ASSOC);
+ 	$json=json_encode($results);
+	return $json;
+}
+
+function consultaBancoComId($id){
+	$conn = new PDO('mysql:host=127.0.0.1;dbname=app', 'root', '');
      
     $sql = $conn->prepare('SELECT * FROM pessoa WHERE id = :id');
     $sql->execute(array('id' => $id));
@@ -19,20 +23,15 @@ function consultaBanco($id)
     $results=$sql->fetchAll(PDO::FETCH_ASSOC);
  	$json=json_encode($results);
  	return $json;
-
 }
 
-//definição do serviço
-function helloWorld($name)
-{
+function helloWorld($name){
     return "Hello ".$name;
 }
 
-//registro do serviço
 $server->addFunction("helloWorld");
 $server->addFunction("consultaBanco");
+$server->addFunction("consultaBancoComId");
 
-//chamada do método para atender as requisição do serviço
 $server->handle();
-
 ?>
