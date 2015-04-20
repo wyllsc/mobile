@@ -1,30 +1,20 @@
 angular.module('starter.controllers', [])
 
-
-.controller('WebServiceCtrl', function($scope, $http) {
-    //$http.get("http://127.0.0.1/projects/webservice-php/webservice/cliente.php5").success(function(data, status, headers, config){
-    $http.get("http://innovar.besaba.com/ws/cliente2.php5").success(function(data, status, headers, config){
-        console.log('Data Sucesso');
-        console.log(data);
-        $scope.itens = data;
-    }).error(function(data, status, headers, config){
-        console.log("**** ERROR ****");
-        console.log(status);
-        alert(status);
-    })
-})
-
-.controller('WordpressCtrl', function($scope, $http) {
-    $http.get("http://innovar.besaba.com/ws/cliente_wordpress.php5").success(function(data, status, headers, config){
-        console.log('Data Sucesso');
-        console.log(data);
+.controller('NoticiasCtrl', function($scope, $http) {
+    $http.get("http://innovar.besaba.com/ws/gjcc/buscaNoticias.php5").success(function(data, status, headers, config){
+        console.log(" **** Retornando Noticias **** ");
         $scope.valores = data;
     }).error(function(data, status, headers, config){
-        console.log("**** ERROR ****");
+    	console.log(" **** Erro: Retornando Noticias **** ");
         console.log(status);
-        alert(status);
+        alert("Servidor Fora do Ar");
     })
 })
+
+.controller('WebServiceCtrl', function($scope, Teste) {
+	 $scope.itens = Teste.tudo();
+})
+
 
 .controller('DashCtrl', function($scope) {})
 

@@ -1,10 +1,34 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Teste',function($http) {
+	
+    return{
+		 tudo : function() {
+			var resultado = [];
+			 
+			resultado = $http.get("http://innovar.besaba.com/ws/cliente2.php5").success(function(data, status, headers, config){
+				console.log('Data Sucesso');
+			    console.log(data);
+			    alert('antes'+ resultado);
+			    alert('data'+ data);
+			    resultado = data;
+			    alert('depois'+ resultado);
+			}).error(function(data, status, headers, config){
+			    console.log("**** ERROR ****");
+			    console.log(status);
+			    alert(status);
+			})
+			
+			return resultado;
+		}
+ 	};
+})
 
-  // Some fake testing data
-  var chats = [{
+
+
+.factory('Chats', function() {
+
+	var chats = [{
     id: 0,
     name: 'Ben Sparrow',
     lastText: 'You on your way?',
