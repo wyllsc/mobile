@@ -1,2 +1,16 @@
 /* Empty. Add your own CSS if you like */
-.title-left {text-align: center;}
+.title - left {
+    text - align: center;
+}
+
+.item {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+}
+
+.card {
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}

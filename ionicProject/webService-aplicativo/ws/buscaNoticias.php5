@@ -5,7 +5,9 @@ header ("Content-Type: text/html; charset=utf-8");
 
 $client = new SoapClient(null, array(
     'location' => 'http://innovar.besaba.com/ws/gjcc/servico.php5',
-    'uri' => 'http://innovar.besaba.com/ws/gjcc/'));
+    'uri' => 'http://innovar.besaba.com/ws/gjcc/',
+    'soap_version' => SOAP_1_1,
+    'trace'        => true ));
 
 
 
