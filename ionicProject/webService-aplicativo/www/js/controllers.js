@@ -5,15 +5,19 @@ angular.module('starter.controllers', [])
         console.log(" **** Retornando Noticias **** ");
         $scope.valores = data;
     }).error(function(data, status, headers, config){
-    	console.log(" **** Erro: Retornando Noticias"+status+" **** ");
-        alert("Servidor Fora do Ar");
+    	alert("Servidor Fora do Ar");
+    	console.log(" **** Erro: Retornando Noticias "+status+" **** ");
     })
 })
 
 .controller('WebServiceCtrl', function($scope, $http) {
-	$http.get('http://innovar.besaba.com/ws/cliente2.php5').success(function (data) {
-		$scope.itens = data;
-	});
+	$http.get('http://innovar.besaba.com/ws/gjcc/buscaVideos.php5').success(function(data, status, headers, config){
+        console.log(" **** Retornando Videos **** ");
+        $scope.videos = data;
+    }).error(function(data, status, headers, config){
+    	alert("Servidor Fora do Ar");
+    	console.log(" **** Erro: Retornando Videos "+status+" **** ");
+    })
 })
 
 
