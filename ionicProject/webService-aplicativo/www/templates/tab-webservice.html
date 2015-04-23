@@ -1,13 +1,15 @@
 <ion-view view-title="Grupo Jovem Caminho da Cruz">
   <ion-content>
     <ion-list>
-    	<ion-item ng-repeat="item in links">
+    	<ion-item ng-repeat="item in itens">
 	        <div class="card">
-	            <ion-item>
-	                <div class="video-container">
-	                    <iframe src="item.url" frameborder="0"></iframe>
-	                </div>
-	            </ion-item>
+	        
+	        <div class="item item-body">
+		        <div>
+					{{item.id}}<br>
+					{{item.nome}}<br>
+		        </div>
+	      	</div>
 	        </div>
        </ion-item>
     </ion-list>

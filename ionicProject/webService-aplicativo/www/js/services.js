@@ -1,31 +1,5 @@
 angular.module('starter.services', [])
 
-.factory('Teste',function($http) {
-	
-    return{
-		 tudo : function() {
-			var resultado = [];
-			 
-			resultado = $http.get("http://innovar.besaba.com/ws/cliente2.php5").success(function(data, status, headers, config){
-				console.log('Data Sucesso');
-			    console.log(data);
-			    alert('antes'+ resultado);
-			    alert('data'+ data);
-			    resultado = data;
-			    alert('depois'+ resultado);
-			}).error(function(data, status, headers, config){
-			    console.log("**** ERROR ****");
-			    console.log(status);
-			    alert(status);
-			})
-			
-			return resultado;
-		}
- 	};
-})
-
-
-
 .factory('Chats', function() {
 
 	var chats = [{
