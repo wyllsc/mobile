@@ -2,9 +2,9 @@
 	<ion-content>
 		<ion-list>
 			<div class="card">
-				<ion-item  ng-repeat="video in videos">
+				<ion-item  ng-repeat="item in videos">
 				    <div class="video-container">
-				        <iframe src="https://www.youtube-nocookie.com/embed/D_VRSFpUcp0" frameborder="0" width="560" height="315"></iframe>
+				        <iframe src="{{item.url}}" frameborder="0" width="560" height="315" />
 				    </div>
 				</ion-item>
 			</div>

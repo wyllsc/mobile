@@ -3,6 +3,7 @@
     text - align: center;
 }
 
+/*Noticia*/
 .item {
     padding-left: 4px !important;
     padding-right: 4px !important;
@@ -15,6 +16,7 @@
     margin-bottom: 4px !important;
 }
 
+/*Video*/
 .video-container {
     position: relative;
     padding-bottom: 56.25%;

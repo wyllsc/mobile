@@ -21,32 +21,32 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: "templates/tabs.html"
   })
 
+  .state('tab.noticias', {
+    url: '/noticias',
+    views: {
+      'tab-noticias': {
+        templateUrl: 'templates/tab-noticias.html',
+        controller: 'NoticiasCtrl'
+      }
+    }
+  })
+  
+  .state('tab.video', {
+    url: '/video',
+    views: {
+      'tab-video': {
+        templateUrl: 'templates/tab-video.html',
+        controller: 'VideoCtrl'
+      }
+    }
+  })
+  
   .state('tab.dash', {
     url: '/dash',
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
         controller: 'DashCtrl'
-      }
-    }
-  })
-  
-  .state('tab.webservice', {
-    url: '/webservice',
-    views: {
-      'tab-webservice': {
-        templateUrl: 'templates/tab-webservice.html',
-        controller: 'WebServiceCtrl'
-      }
-    }
-  })
-
-.state('tab.noticias', {
-    url: '/noticias',
-    views: {
-      'tab-noticias': {
-        templateUrl: 'templates/tab-noticias.html',
-        controller: 'NoticiasCtrl'
       }
     }
   })
@@ -81,5 +81,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/noticias');
 });
