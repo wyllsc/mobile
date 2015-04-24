@@ -19,6 +19,7 @@ angular.module('starter.controllers', [])
 		  var id = it.split("watch?v=").pop();
 		  var con = "https://www.youtube-nocookie.com/embed/";
 		  data[item].url = $sce.trustAsResourceUrl(con.concat(id));
+		  console.log(con.concat(id))
 		}
         $scope.videos = data;
         
