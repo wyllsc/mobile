@@ -1,7 +1,6 @@
 angular.module('starter.services', [])
 
 
-
 .factory('ConversorVideo', function(){
 	
 	var url = null;
@@ -13,9 +12,6 @@ angular.module('starter.services', [])
 			}
 		}
 	}
-	
-	
-	
 })
 
 
