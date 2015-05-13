@@ -46,7 +46,8 @@ function insertFoto($nome)
 {
 	$conn = new PDO('mysql:host=mysql.hostinger.com.br;dbname=u313607455_app', 'u313607455_app', 'sao2300801');
      
-    $sql = $conn->prepare("INSERT INTO  midias (`url` , `tipo` ) VALUES ( '"+$nome+"',  '2' ); ");
+    $sql = $conn->prepare("INSERT INTO  midias (`url` , `tipo` ) VALUES (:nome ,  2); ");
+    $sql->bindValue(':nome', $nome);
     $sql->execute();
 }
 

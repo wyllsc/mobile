@@ -33,23 +33,42 @@ angular.module('starter.controllers', [])
 	
 	var retorno = [];
 	
-	$http.get('http://innovar.besaba.com/ws/gjcc/buscaFotos.php5').success(function(data, status, headers, config){
-        console.log(" **** Retornando Fotos **** ");
-        
-        for (var item in data) {
-		  var id = (data[item].url);
-		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
-		  data[item].url = caminho.concat(id);
-		  console.log(caminho.concat(id))
-		}
-        
-//        $scope.fotos = data;
-          retorno = data;
-        
-    }).error(function(data, status, headers, config){
-    	alert("Servidor Fora do Ar");
-    	console.log(" **** Erro: Retornando Fotos "+status+" **** ");
-    })
+//	$http.get('http://innovar.besaba.com/ws/gjcc/buscaFotos.php5').success(function(data, status, headers, config){
+//        console.log(" **** Retornando Fotos **** ");
+//        
+//        for (var item in data) {
+//		  var id = (data[item].url);
+//		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
+//		  data[item].url = caminho.concat(id);
+//		  console.log(caminho.concat(id))
+//		}
+//        
+////        $scope.fotos = data;
+//          retorno = data;
+//        
+//    }).error(function(data, status, headers, config){
+//    	alert("Servidor Fora do Ar");
+//    	console.log(" **** Erro: Retornando Fotos "+status+" **** ");
+//    })
+	
+	
+	
+	
+	 $http({
+	        url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5',
+	        method: "GET"
+	    })
+	    .then(function(response) {
+	            // success
+	    }, 
+	    function(response) { // optional
+	            // failed
+	    });
+	
+	
+	
+	
+	
 	
 	
 	
