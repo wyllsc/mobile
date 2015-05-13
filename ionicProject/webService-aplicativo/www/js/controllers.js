@@ -29,7 +29,42 @@ angular.module('starter.controllers', [])
 })
 
 // https://blog.nraboy.com/2015/01/making-tinder-style-swipe-cards-ionic-framework/
-.controller('FotosCtrl', function($scope, TDCardDelegate) {
+.controller('FotosCtrl', function($scope, $http, TDCardDelegate) {
+	
+	var retorno = [];
+	
+	$http.get('http://innovar.besaba.com/ws/gjcc/buscaFotos.php5').success(function(data, status, headers, config){
+        console.log(" **** Retornando Fotos **** ");
+        
+        for (var item in data) {
+		  var id = (data[item].url);
+		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
+		  data[item].url = caminho.concat(id);
+		  console.log(caminho.concat(id))
+		}
+        
+//        $scope.fotos = data;
+          retorno = data;
+        
+    }).error(function(data, status, headers, config){
+    	alert("Servidor Fora do Ar");
+    	console.log(" **** Erro: Retornando Fotos "+status+" **** ");
+    })
+	
+	
+	
+	
+	
+	
+	var card = [];
+	
+	
+	 for (var item in retorno) {
+		  var id = (data[item].url);
+		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
+		  data[item].url = $sce.trustAsResourceUrl(caminho.concat(id));
+		  console.log(con.concat(id))
+		}
 	
 	var cardTypes = 
 		[{image: 'img/pic1.jpg', title: 'So much grass #hippster'},
