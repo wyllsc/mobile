@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
 // https://blog.nraboy.com/2015/01/making-tinder-style-swipe-cards-ionic-framework/
 .controller('FotosCtrl', function($scope, $http, TDCardDelegate) {
 	
-	var retorno = [];
+//	var retorno = [];
 	
 //	$http.get('http://innovar.besaba.com/ws/gjcc/buscaFotos.php5').success(function(data, status, headers, config){
 //        console.log(" **** Retornando Fotos **** ");
@@ -52,58 +52,31 @@ angular.module('starter.controllers', [])
 //    })
 	
 	
-	
-	
-	 $http({
-	        url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5',
-	        method: "GET"
-	    })
-	    .then(function(response) {
-	            // success
-	    }, 
-	    function(response) { // optional
-	            // failed
-	    });
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	var card = [];
-	
-	
-	 for (var item in retorno) {
-		  var id = (data[item].url);
-		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
-		  data[item].url = $sce.trustAsResourceUrl(caminho.concat(id));
-		  console.log(con.concat(id))
-		}
+//	 for (var item in retorno) {
+//		  var id = (data[item].url);
+//		  var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
+//		  data[item].url = $sce.trustAsResourceUrl(caminho.concat(id));
+//		  console.log(con.concat(id))
+//		}
 	
 	var cardTypes = 
-		[{image: 'img/pic1.jpg', title: 'So much grass #hippster'},
-		{ image: 'img/pic2.jpg', title: 'Way too much Sand, right?'},
-		{ image: 'img/pic3.jpg', title: 'Beautiful sky from wherever'}];
+		[{image: 'http://innovar.besaba.com/ws/gjcc/img/pic1.jpg', title: 'Da Web'},
+		{ image: '../img/pic2.jpg', title: 'Way too much Sand, right?'},
+		{ image: '../img/pic3.jpg', title: 'Beautiful sky from wherever'}];
            
 	$scope.cardDestroyed = function(index) {
 		$scope.cards.splice(index, 1);
 		console.log('Cartão Removido');
 	};
 	
-	$scope.addCard = function(i) {
-		var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-		newCard.id = Math.random();
-		$scope.cards.push(angular.extend({}, newCard));
+	$scope.addCard = function() {
+		angular.forEach(cardTypes, function(item) {
+			$scope.cards.push(angular.extend({}, item));
+		})
 	};
 	
 	$scope.cards = [];
-
-	for(var i = 0; i < 3; i++)	$scope.addCard();
+	$scope.addCard();
 })
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {
