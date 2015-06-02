@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
 })
 
 // https://blog.nraboy.com/2015/01/making-tinder-style-swipe-cards-ionic-framework/
-.controller('FotosCtrl', function($scope, $http, TDCardDelegate) {
+.controller('FotosCtrl', function($scope, $http, TDCardDelegate, Get, $ionicLoading) {
 	
 //	var retorno = [];
 	
@@ -77,6 +77,16 @@ angular.module('starter.controllers', [])
 	
 	$scope.cards = [];
 	$scope.addCard();
+	
+	$ionicLoading.show({
+		noBackdrop: true,
+		template: '<p> <ion-spinner icon="ripple"/></p> Carregando'
+    });
+	
+	$scope.teste = Get.query(function() {
+		 $ionicLoading.hide();
+	});
+	
 })
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {

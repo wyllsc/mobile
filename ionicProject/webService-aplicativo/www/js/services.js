@@ -14,6 +14,10 @@ angular.module('starter.services', [])
 	}
 })
 
+.factory('Get', function($resource) {
+  return $resource('http://innovar.besaba.com/ws/gjcc/buscaNoticias.php5');
+})
+
 
 .factory('Chats', function() {
 
