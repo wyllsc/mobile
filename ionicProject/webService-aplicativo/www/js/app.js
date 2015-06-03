@@ -11,6 +11,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 })
 
+.constant('$ionicLoadingConfig', {
+	noBackdrop: true,
+	template: '<p> <ion-spinner icon="ripple"/></p> Carregando'
+})
 
 .directive('noScroll', function() {
     return {
