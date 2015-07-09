@@ -33,72 +33,56 @@ angular.module('starter.controllers', [])
     console.log("### Retorna Vídeos ###");
 })
 
-// https://blog.nraboy.coxm/2015/01/making-tinder-style-swipe-cards-ionic-framework/
-.controller('FotosCtrl', function($scope, $http, TDCardDelegate, Webservice, $ionicLoading) {
+.controller('FotosCtrl', function($scope, $http, TDCardDelegate, Webservice, $ionicLoading, $ionicModal) {
 
-    $ionicLoading.show();
-
-    var listaFotos = Webservice.fotos();
+    $ionicModal.fromTemplateUrl('modal.html', {
+       scope: $scope,
+       animation: 'mh-slide'
+     }).then(function(modal) {
+       $scope.modal = modal;
+     });
+     
+     $scope.openModal = function() {
+       buscaFotos();
+       $scope.modal.show();
+     };
     
-    listaFotos.$promise.then(function(data) {
-        angular.forEach(listaFotos, function(item) {
-            var id = (item.image);
-            var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
-            item.image = caminho.concat(id);
-            console.log(item.image);
-        });
+     $scope.closeModal = function() {
+       $scope.modal.hide();
+     };
+
+     var buscaFotos = function(){
+        $ionicLoading.show();
+        var listaFotos = Webservice.fotos();
         
-        var cardTypes = listaFotos;
+        listaFotos.$promise.then(function(data) {
+            
+            angular.forEach(listaFotos, function(item) {
+                var id = (item.image);
+                var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
+                item.image = caminho.concat(id);
+            });
+            
+            var cardTypes = listaFotos;
 
-        $scope.cardDestroyed = function(index) {
-            $scope.cards.splice(index, 1);
-            console.log('Cartão Removido');
-        };
+            $scope.cardDestroyed = function(index) {
+                $scope.cards.splice(index, 1);
+                console.log('Cartão Removido');
+            };
 
-        $scope.addCard = function() {
-            angular.forEach(cardTypes, function(item) {
-                $scope.cards.push(angular.extend({}, item));
-            })
-        };
+            $scope.addCard = function() {
+                angular.forEach(cardTypes, function(item) {
+                    $scope.cards.push(angular.extend({}, item));
+                })
+            };
 
-        $scope.cards = [];
-        $scope.addCard();
-        
-        $ionicLoading.hide();       
-    });
-
-
-    
-
-    // var retorno = [];
-
-    // $http.get('http://innovar.besaba.com/ws/gjcc/buscaFotos.php5').success(function(data,
-    // status, headers, config){
-    // console.log(" **** Retornando Fotos **** ");
-    //        
-    // for (var item in data) {
-    // var id = (data[item].url);
-    // var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
-    // data[item].url = caminho.concat(id);
-    // console.log(caminho.concat(id))
-    // }
-    //        
-    // // $scope.fotos = data;
-    // retorno = data;
-    //        
-    // }).error(function(data, status, headers, config){
-    // alert("Servidor Fora do Ar");
-    // console.log(" **** Erro: Retornando Fotos "+status+" ****
-    // ");
-    // })
-
-    // for (var item in retorno) {
-    // var id = (data[item].url);
-    // var caminho = "http://innovar.besaba.com/ws/gjcc/img/";
-    // data[item].url =
-    // $sce.trustAsResourceUrl(caminho.concat(id));
-    //		  console.log(con.concat(id))
-    //		}
+            $scope.cards = [];
+            $scope.addCard();
+            
+            $ionicLoading.hide();       
+            console.log("### Retorna Fotos ###");
+        })
+     };
 })
 
 .controller('CardCtrl', function($scope, TDCardDelegate) {
@@ -117,20 +101,20 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 
 
-    //	$ionicModal.fromTemplateUrl('modal.html', {
-    //	  scope: $scope,
-    //	  animation: 'slide-in-up'
-    //	}).then(function(modal) {
-    //	  $scope.modal = modal;
-    //	});
-    //	
-    //	$scope.openModal = function() {
-    //	  $scope.modal.show();
-    //	};
-    //
-    //	$scope.closeModal = function() {
-    //	  $scope.modal.hide();
-    //	};
+    	// $ionicModal.fromTemplateUrl('modal.html', {
+    	//   scope: $scope,
+    	//   animation: 'slide-in-up'
+    	// }).then(function(modal) {
+    	//   $scope.modal = modal;
+    	// });
+    	
+    	// $scope.openModal = function() {
+    	//   $scope.modal.show();
+    	// };
+    
+    	// $scope.closeModal = function() {
+    	//   $scope.modal.hide();
+    	// };
 
 
 })

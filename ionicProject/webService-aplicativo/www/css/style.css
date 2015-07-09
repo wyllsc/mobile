@@ -5,7 +5,7 @@
 
 /*Noticia*/
 .item {
-    padding-left: 4px !important;
+    /*padding-left: 4px !important;*/
     padding-right: 4px !important;
     padding-bottom: 5px !important;
     padding-top: 5px !important;
@@ -22,7 +22,7 @@
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;
 }
- 
+
 .video-container iframe, .video-container object, .video-container embed {
     position: absolute;
     top: 0;
@@ -38,7 +38,7 @@ td-cards {
     display: block;
     margin-top: 50px;
 }
- 
+
 td-card {
     position: absolute;
     left: 50%;
@@ -50,27 +50,27 @@ td-card {
     border-radius: 6px;
     background-color: rgb(255,255,255);
 }
- 
+
 .td-card .title {
     height: 40px;
     font-size: 15px;
     padding: 15px;
 }
- 
+
 td-card .image {
     position: absolute;
     top: 40px;
     width: 100%;
 }
- 
+
 td-card img {
     height: 258px;
     width: 100%;
     border-radius: 6px;
 }
- 
+
 /* Overlay styling*/
- 
+
 .overlayBox {
     position: absolute;
     left: 50%;
@@ -80,7 +80,7 @@ td-card img {
     opacity: 0;
     margin: 80px 0 0 -149px;
 }
- 
+
 .boxed {
     height: 50px;
     width: 100px;
@@ -88,29 +88,29 @@ td-card img {
     border-radius: 6px;
     font-size: 15px;
 }
- 
+
 .yes-text {
     background-color: rgba(0,256,0,0.2);
 }
- 
+
 .yesBox {
     margin: 10% 60% 0% 10%;
     border: 2px solid #00FF00;
     color: rgb(0, 256, 0);
     -webkit-transform: rotate(-25deg);
 }
- 
+
 .no-text {
     background-color: rgba(256,0,0,0.2);
 }
- 
+
 .noBox {
     margin: 10% 10% 0% 60%;
     border: 2px solid #FF0000;
     color: rgb(256, 0, 0);
     -webkit-transform: rotate(25deg);
 }
- 
+
 .fade {
     -webkit-transition: 0.2s opacity linear;
     transition: 0.2s opacity linear;
@@ -124,7 +124,7 @@ td-card img {
   margin-left: -3.2em;
   margin-right: 1em;
   margin-top: -0.2em;
- }
+}
 
 .spinner svg {
   width: 28px;
@@ -132,3 +132,26 @@ td-card img {
   stroke: #999;
   fill: #999;
 }
+
+
+/*Animação Modal*/
+.mh-slide {
+  -webkit-transform: translate3d(0, 0, 0) scale(0);
+  transform: translate3d(0, 0, 0) scale(0);
+  opacity: 0
+  /*    transform: rotate(0deg) scale(0.761) skew(1deg) translate(0px);*/
+}
+
+.mh-slide.ng-enter, .mh-slide > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+
+  .mh-slide.ng-enter-active, .mh-slide > .ng-enter-active {
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+}
+
+.mh-slide.ng-leave, .mh-slide > .ng-leave {
+  -webkit-transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms; }

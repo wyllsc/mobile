@@ -4,26 +4,55 @@ angular.module('starter.services', [])
 .factory('ConversorVideo', function(){
 	
 	var url = null;
-	
-	return{
-		converterYoutube: function(data){
-			for (var item in data) {
-			  console.log(item);
-			}
-		}
-	}
+	return{}
 })
 
 .factory('Webservice', function($resource) {
-	return $resource('http://innovar.besaba.com/ws/gjcc/', {}, 
-		{
-			noticias: 	{method: 'GET', url: 'http://innovar.besaba.com/ws/gjcc/buscaNoticias.php5', isArray: true},
-			videos:		  {method: 'GET', url: 'http://innovar.besaba.com/ws/gjcc/buscaVideos.php5', isArray: true},
-			fotos:		  {method: 'GET', url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5', isArray: true},
-			imagens: 	  {method: 'GET', params: {pastaId : '@pastaId', subpastaId : '@subpastaId', pagina: '@pagina'}, url: 'http://localhost:8080/banco-fotos/api/pastas/:pastaId/subpastas/:subpastaId/imagens/:pagina', isArray: true},
-			download: 	{method: 'GET', params: {ids : '@ids'}, url: 'http://localhost:8080/banco-fotos/api/download/:ids', isArray: false},
-			config: 	  {method: 'GET', url: 'http://localhost:8080/banco-fotos/api/config', isArray: false}
-		})
+    return $resource('http://innovar.besaba.com/ws/gjcc/', {}, {
+        noticias: {
+            method: 'GET',
+            url: 'http://innovar.besaba.com/ws/gjcc/buscaNoticias.php5',
+            isArray: true
+        },
+        
+        videos: {
+            method: 'GET',
+            url: 'http://innovar.besaba.com/ws/gjcc/buscaVideos.php5',
+            isArray: true
+        },
+        
+        fotos: {
+            method: 'GET',
+            url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5',
+            isArray: true
+        },
+        
+        imagens: {
+            method: 'GET',
+            params: {
+                pastaId: '@pastaId',
+                subpastaId: '@subpastaId',
+                pagina: '@pagina'
+            },
+            url: 'http://localhost:8080/banco-fotos/api/pastas/:pastaId/subpastas/:subpastaId/imagens/:pagina',
+            isArray: true
+        },
+        
+        download: {
+            method: 'GET',
+            params: {
+                ids: '@ids'
+            },
+            url: 'http://localhost:8080/banco-fotos/api/download/:ids',
+            isArray: false
+        },
+        
+        config: {
+            method: 'GET',
+            url: 'http://localhost:8080/banco-fotos/api/config',
+            isArray: false
+        }
+    })
 })
 
 .factory('Chats', function() {

@@ -1,5 +1,9 @@
-<ion-view view-title="Vídeos"> 
+<ion-view view-title="GJCC"> 
 	<ion-content>
+		<ion-refresher 
+		  pulling-text="Push para Carregar"
+		  on-refresh="">
+		</ion-refresher>
 		<ion-list>
 			<div class="card">
 				<ion-item  ng-repeat="item in videos">

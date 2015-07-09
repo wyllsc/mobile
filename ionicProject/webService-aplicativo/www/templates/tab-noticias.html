@@ -1,17 +1,33 @@
-<ion-view view-title="Notícias">
-  <ion-content>
-    <ion-list>
-    	<ion-item ng-repeat="item in valores">
-    	    <div class="list card">
-		      <div class="item item-divider"><b>{{item.titulo}}</b></div>
-		      <div class="item item-body">
-		        <div>
-		          {{item.descricao}}<br>
-		        </div>
-		      </div>
-		    <div class="item item-divider" style=" font-size: smaller; font-family: cursive; text-align: right;">Equipe GJCC</div>
-		    </div>
-      	</ion-item>
-    </ion-list>
-  </ion-content>
+<ion-view view-title="GJCC">
+    <ion-content scroll="true">
+        <ion-list>
+            <!--     	<ion-refresher  -->
+            <!-- 			pulling-text="Push para Carregar" -->
+            <!-- 			refreshing-text="Carregando Notícias" -->
+            <!-- 		  	on-refresh="ultimasNoticias()"> -->
+            <!-- 		</ion-refresher> -->
+            
+            <ion-item ng-repeat="item in ultimasNoticias">
+                <div class="list card">
+                    <div class="item item-avatar">
+                        <img src="../img/logo.jpg">
+                        <h2><b>{{item.titulo}}</b></h2>
+                        <p>Coordenação GJCC</p>
+                    </div>
+
+                    <div class="item item-body">
+                        {{item.descricao}}
+                    </div>
+            </ion-item>
+
+            <!-- 		      <div class="item item-divider"><b>{{item.titulo}}</b></div> -->
+            <!-- 		      <div class="item item-body"> -->
+            <!-- 		        <div> -->
+            <!-- 		          {{item.descricao}}<br> -->
+            <!-- 		        </div> -->
+            <!-- 		      </div> -->
+            <!-- 		    <div class="item item-divider" style=" font-size: smaller; font-family: cursive; text-align: right;">Equipe GJCC</div> -->
+            <!-- 		    </div> -->
+        </ion-list>
+    </ion-content>
 </ion-view>
