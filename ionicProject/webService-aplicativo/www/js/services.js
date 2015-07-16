@@ -2,31 +2,31 @@ angular.module('starter.services', [])
 
 
 .factory('ConversorVideo', function(){
-	
+
 	var url = null;
 	return{}
 })
 
 .factory('Webservice', function($resource) {
-    return $resource('http://innovar.besaba.com/ws/gjcc/', {}, {
+    return $resource('', {}, {
         noticias: {
             method: 'GET',
-            url: 'http://innovar.besaba.com/ws/gjcc/buscaNoticias.php5',
+            url: 'http://canuri.com/ws/servico.php/categorias',
             isArray: true
         },
-        
+
         videos: {
             method: 'GET',
             url: 'http://innovar.besaba.com/ws/gjcc/buscaVideos.php5',
             isArray: true
         },
-        
+
         fotos: {
             method: 'GET',
             url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5',
             isArray: true
         },
-        
+
         imagens: {
             method: 'GET',
             params: {
@@ -37,7 +37,7 @@ angular.module('starter.services', [])
             url: 'http://localhost:8080/banco-fotos/api/pastas/:pastaId/subpastas/:subpastaId/imagens/:pagina',
             isArray: true
         },
-        
+
         download: {
             method: 'GET',
             params: {
@@ -46,7 +46,7 @@ angular.module('starter.services', [])
             url: 'http://localhost:8080/banco-fotos/api/download/:ids',
             isArray: false
         },
-        
+
         config: {
             method: 'GET',
             url: 'http://localhost:8080/banco-fotos/api/config',
