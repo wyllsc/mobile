@@ -1,17 +1,15 @@
-<ion-view view-title="GJCC"> 
-	<ion-content>
-		<ion-refresher 
-		  pulling-text="Push para Carregar"
-		  on-refresh="">
-		</ion-refresher>
-		<ion-list>
-			<div class="card">
-				<ion-item  ng-repeat="item in videos">
-				    <div class="video-container">
-				        <iframe src="{{item.url}}" frameborder="0" width="560" height="315" />
-				    </div>
-				</ion-item>
-			</div>
-		</ion-list>
-	</ion-content> 
+<ion-view view-title="GJCC">
+    <ion-content>
+        <ion-refresher pulling-text="Push para Carregar" on-refresh="">
+        </ion-refresher>
+        <ion-list>
+            <div class="card">
+                <ion-item ng-repeat="item in videos">
+                    <div class="video-container">
+                        <iframe src="{{item.url}}" frameborder="0" width="560" height="315" />
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
 </ion-view>

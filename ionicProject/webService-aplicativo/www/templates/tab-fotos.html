@@ -7,24 +7,24 @@
 
 		<!-- <ion-list> -->
 		<!-- 	<ion-item  ng-repeat="item in cards"> -->
-<!-- 				 <ion-pane ng-controller="FotosCtrl"> -->
-<!-- 				      <td-cards>  -->
-<!-- 					      <td-card ng-repeat="card in cards" -->
-<!-- 							on-destroy="cardDestroyed($index)" -->
-<!-- 							on-swipe-left="cardSwipedLeft($index)" -->
-<!-- 							on-swipe-right="cardSwipedRight($index)" -->
-<!-- 							on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}"> -->
-<!-- 							<div class="title"> -->
-<!-- 				               {{card.title}} -->
-<!-- 				            </div> -->
-<!-- 							<div class="image" ng-controller="CardCtrl"> -->
-<!-- 								<div class="no-text overlayBox"><div class="noBox boxed">Não Gostei</div></div> -->
-<!-- 								<img ng-src="{{card.image}}"> -->
-<!-- 								<div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Gostei+1</div></div> -->
-<!-- 							</div> -->
-<!-- 						</td-card> -->
-<!-- 				      </td-cards> -->
-<!-- 				    </ion-pane> -->
+		<!-- 				 <ion-pane ng-controller="FotosCtrl"> -->
+		<!-- 				      <td-cards>  -->
+		<!-- 					      <td-card ng-repeat="card in cards" -->
+		<!-- 							on-destroy="cardDestroyed($index)" -->
+		<!-- 							on-swipe-left="cardSwipedLeft($index)" -->
+		<!-- 							on-swipe-right="cardSwipedRight($index)" -->
+		<!-- 							on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}"> -->
+		<!-- 							<div class="title"> -->
+		<!-- 				               {{card.title}} -->
+		<!-- 				            </div> -->
+		<!-- 							<div class="image" ng-controller="CardCtrl"> -->
+		<!-- 								<div class="no-text overlayBox"><div class="noBox boxed">Não Gostei</div></div> -->
+		<!-- 								<img ng-src="{{card.image}}"> -->
+		<!-- 								<div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Gostei+1</div></div> -->
+		<!-- 							</div> -->
+		<!-- 						</td-card> -->
+		<!-- 				      </td-cards> -->
+		<!-- 				    </ion-pane> -->
 		<!-- 	    </ion-item> -->
 		<!--     </ion-list> -->
 
@@ -37,23 +37,24 @@
 	    </ion-header-bar>
 
 	   		 <ion-pane ng-controller="FotosCtrl">
-				<td-cards> 
+				<td-cards>
 			        <td-card ng-repeat="card in cards"
-						on-destroy="cardDestroyed($index)"
-						on-swipe-left="cardSwipedLeft($index)"
-						on-swipe-right="cardSwipedRight($index)"
-						on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
-						<div class="title">
-			               {{card.title}}
-			            </div>
+								on-destroy="cardDestroyed($index)"
+								on-swipe-left="cardSwipedLeft($index)"
+								on-swipe-right="cardSwipedRight($index)"
+								on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+										<div class="title">
+		               		{{card.title}}
+				            </div>
 						<div class="image" ng-controller="CardCtrl">
 							<div class="no-text overlayBox"><div class="noBox boxed">Não Gostei</div></div>
 							<img ng-src="{{card.image}}">
 							<div class="yes-text overlayBox"><div class="yesBox boxed" id="centerMe">Gostei+1</div></div>
 						</div>
+
 					</td-card>
 				</td-cards>
-		    </ion-pane>		
+		    </ion-pane>
 
 	  </ion-modal-view>
 	</script>

@@ -11,30 +11,29 @@ angular.module('starter.services', [])
     return $resource('', {}, {
         noticias: {
             method: 'GET',
-            url: 'http://canuri.com/ws/servico.php/categorias',
+            url: 'http://canuri.com/ws/servico.php/informativos',
             isArray: true
         },
 
         videos: {
             method: 'GET',
-            url: 'http://innovar.besaba.com/ws/gjcc/buscaVideos.php5',
+            url: 'http://canuri.com/ws/servico.php/videos',
             isArray: true
         },
 
         fotos: {
             method: 'GET',
-            url: 'http://innovar.besaba.com/ws/gjcc/buscaFotos.php5',
+            url: 'http://canuri.com/ws/servico.php/fotos',
             isArray: true
         },
 
-        imagens: {
-            method: 'GET',
+        postarNoticia: {
+            method: 'POST',
             params: {
-                pastaId: '@pastaId',
-                subpastaId: '@subpastaId',
-                pagina: '@pagina'
+                titulo: '@titulo',
+                desc: '@descricao'
             },
-            url: 'http://localhost:8080/banco-fotos/api/pastas/:pastaId/subpastas/:subpastaId/imagens/:pagina',
+            url: 'http://canuri.com/ws/servico.php/postarNoticia/:titulo/:desc',
             isArray: true
         },
 

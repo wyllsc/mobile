@@ -12,6 +12,8 @@ $app->get('/', function () {
 $app->get('/informativos','buscaInformativos');
 $app->get('/videos','buscaVideos');
 $app->get('/fotos','buscaFotos');
+$app->post('/produtos/:id','insereProduto');
+$app->post('/produtos/:id/:url','insereTeste');
 
 $app->run();
 
@@ -37,8 +39,27 @@ function buscaFotos(){
   echo json_encode($categorias);
 }
 
-function insereFotos(){
-  $stmt = getConn()->query("INSERT INTO  midias (`url` , `tipo` ) VALUES (:nome ,  2); ");
-  $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  echo json_encode($categorias);
+function insereProduto($id){
+  $request = \Slim\Slim::getInstance()->request();
+  $produto = json_decode($request->getBody());
+  $sql = "UPDATE midias SET url=:url WHERE id=9";
+  $conn = getConn();
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam("url",$id);
+  $stmt->execute();
+
+  echo json_encode($produto);
+}
+
+function insereTeste($id, $url){
+  $request = \Slim\Slim::getInstance()->request();
+  $produto = json_decode($request->getBody());
+  $sql = "INSERT INTO midias (tipo,url) values (:tipo,:url)";
+  $conn = getConn();
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam("tipo",$id);
+  $stmt->bindParam("url",$url);
+  $stmt->execute();
+
+  echo json_encode($produto);
 }

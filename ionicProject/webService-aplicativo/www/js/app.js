@@ -20,8 +20,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     return {
         restrict: 'A',
         link: function($scope, $element, $attr) {
-            $element.on('touchmove', function(e) { 
-            	e.preventDefault(); 
+            $element.on('touchmove', function(e) {
+            	e.preventDefault();
         	});
         }
     }
@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-  
+
   .state('tab.video', {
     url: '/video',
     views: {
@@ -56,36 +56,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-  
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-
-  .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
 
   .state('tab.fotos', {
     url: '/fotos',
